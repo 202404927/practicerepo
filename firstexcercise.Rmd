@@ -2,7 +2,7 @@
 title: "First excercise pt1"
 author: "202404927"
 date: "October 2024"
-output: html_document
+output: firstexercise.html
 ---
 
 ## Transforming data
@@ -10,9 +10,7 @@ output: html_document
 We first import our libraries and install the package that will allow us to read the excel.
 
 ```{r}
-install.packages("tidyverse")
 library("tidyverse")
-install.packages("readxl") 
 library(readxl)
 ```
 
