@@ -29,7 +29,9 @@ transform_data_1 <- function(data) {
 ## Transforming data - function 2
 
 ```{r}
-transform_data_n2 <- function(data) {
+data_new <- read_excel("/Users/ceciliag/MY472-Local/practicerepo/vehicular-accidents-monterrey.xlsx", sheet = "Feuil1") 
+
+transform_data_n2 <- function(data_new) {
     transformed_data_2 <- data[data$ejercicio > 2023, ]  # Filter rows where the year of the accidents reported is 2023
     return(transformed_data_2)
 }
