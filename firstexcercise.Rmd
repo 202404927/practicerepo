@@ -1,2 +1,29 @@
-x <- 2+2+2
-print (x)
+---
+title: "First excercise pt1"
+author: "202404927"
+date: "October 2024"
+output: html_document
+---
+
+## Transforming data
+
+We first import our libraries and install the package that will allow us to read the excel.
+
+```{r}
+install.packages("tidyverse")
+library("tidyverse")
+install.packages("readxl") 
+library(readxl)
+```
+
+After we import our database, we create our function that will transform our data by removing any rows that contain blank spaces.
+
+```{r}
+data <- read_excel("/Users/ceciliag/MY472-Local/practicerepo/vehicular-accidents-monterrey.xlsx", sheet = "Feuil1") 
+
+transform_data_1 <- function(data) { 
+  transformed_data <- data[complete.cases(data), ] #We remove the rows with blank spaces return(transformed)
+  return(transform_data_1)
+} 
+
+```
