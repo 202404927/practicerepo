@@ -356,18 +356,28 @@ display: none;
 </div>
 
 
-<div id="transforming-data" class="section level2">
-<h2>Transforming data</h2>
+<div id="transforming-data---function-1" class="section level2">
+<h2>Transforming data - function 1</h2>
 <p>We first import our libraries and install the package that will allow
 us to read the excel.</p>
-<pre class="r"><code>library(&quot;tidyverse&quot;)</code></pre>
+<pre class="r"><code>options(repos = c(CRAN = &quot;https://cloud.r-project.org/&quot;))
+update.packages(&quot;tidyverse&quot;)
+install.packages(&quot;readxl&quot;)</code></pre>
+<pre><code>## Installing package into &#39;/Users/ceciliag/Library/R/x86_64/4.2/library&#39;
+## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre><code>## 
+## The downloaded binary packages are in
+##  /var/folders/qm/g2g63jx51311xcpfzqnv_ppc0000gp/T//RtmpoHllhw/downloaded_packages</code></pre>
+<pre class="r"><code>library(knitr)
+library(rmarkdown)
+library(&quot;tidyverse&quot;)</code></pre>
 <pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ## ✔ forcats   1.0.0     ✔ stringr   1.5.1
 ## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
 ## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-## ✔ purrr     1.0.2     
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✔ purrr     1.0.2</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
@@ -380,6 +390,16 @@ transform_data_1 &lt;- function(data) {
   transformed_data &lt;- data[complete.cases(data), ] #We remove the rows with blank spaces return(transformed)
   return(transform_data_1)
 } </code></pre>
+</div>
+<div id="transforming-data---function-2" class="section level2">
+<h2>Transforming data - function 2</h2>
+<pre class="r"><code>library(readxl)
+data_new &lt;- read_excel(&quot;/Users/ceciliag/MY472-Local/practicerepo/vehicular-accidents-monterrey.xlsx&quot;, sheet = &quot;Feuil1&quot;) 
+
+transform_data_n2 &lt;- function(data_new) {
+    transformed_data_2 &lt;- data[data$ejercicio &gt; 2023, ]  # Filter rows where the year of the accidents reported is 2023
+    return(transformed_data_2)
+}</code></pre>
 </div>
 
 
