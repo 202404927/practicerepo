@@ -5,7 +5,7 @@ date: "October 2024"
 output: firstexercise.html
 ---
 
-## Transforming data
+## Transforming data - function 1
 
 We first import our libraries and install the package that will allow us to read the excel.
 
@@ -23,5 +23,16 @@ transform_data_1 <- function(data) {
   transformed_data <- data[complete.cases(data), ] #We remove the rows with blank spaces return(transformed)
   return(transform_data_1)
 } 
+
+```
+
+## Transforming data - function 2
+
+```{r}
+transform_data_n2 <- function(data) {
+    transformed_data_2 <- data[data$ejercicio > 2023, ]  # Filter rows where the year of the accidents reported is 2023
+    return(transformed_data_2)
+}
+
 
 ```
